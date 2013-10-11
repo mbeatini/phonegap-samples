@@ -13,7 +13,8 @@ var EmployeeView = function(employee) {
 	this.addLocation = function(event) {
 	    event.preventDefault();
 	    console.log('addLocation');
-	    navigator.geolocation.getCurrentPosition(
+	    //navigator.geolocation.getCurrentPosition(
+	    navigator.geolocation.watchPosition(
 	        function(position) {
 	            $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
 	        },
