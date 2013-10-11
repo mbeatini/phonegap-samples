@@ -19,7 +19,8 @@ var EmployeeView = function(employee) {
 	        },
 	        function() {
 	            alert('Error getting location');
-	        });
+	        },
+	        { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
 	    return false;
 	};
 
