@@ -35,12 +35,22 @@ var EmployeeView = function(employee) {
 	        return;
 	    }
 	    var contact = navigator.contacts.create();
-	    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
+	    var name = new ContactName();
+	    name.givenName = employee.firstName;
+	    name.familyName = employee.lastName;
+
+	    contact.name = name;
+	    
+//	    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
 	    var phoneNumbers = [];
 	    phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
 	    phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
 	    contact.phoneNumbers = phoneNumbers;
-	    contact.save();
+	    contact.save(function(){
+	    	alert('Saved!');
+	    }, function(contactError){
+	    	alert('Error= ' + contactError.code);
+	    });
 	    return false;
 	};
 
