@@ -40,7 +40,7 @@ var EmployeeView = function(employee) {
 	    name.familyName = employee.lastName;
 
 	    contact.name = name;
-	    
+
 //	    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
 	    var phoneNumbers = [];
 	    phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
@@ -51,7 +51,8 @@ var EmployeeView = function(employee) {
 	    }, function(contactError){
 	    	alert('Error= ' + contactError.code);
 	    });
-	    return false;
+	    //return false;
+	    return;
 	};
 
 	this.changePicture = function(event) {
